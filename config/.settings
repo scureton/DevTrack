@@ -1,0 +1,19 @@
+{
+    "username": "scureton@redhat.com.sideDev", 
+    "environment": "developer", 
+    "project_name": "DevTrack", 
+    "workspace": "/home/scureton/Projects", 
+    "org_url": "", 
+    "namespace": "", 
+    "id": "VWCV9NDWYZIGRQ0TT12CN54WNHT7H6NI", 
+    "metadata_container": "1dci0000000IyvoAAC", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "CustomObject", 
+        "Profile", 
+        "StaticResource"
+    ]
+}

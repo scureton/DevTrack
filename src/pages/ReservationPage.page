@@ -1,0 +1,42 @@
+<apex:page controller="ReservationHelper" showHeader="true" sidebar="true">
+<apex:form>
+<apex:sectionHeader title="Development Item Reservations"/>
+
+<apex:pageBlock id="searchBlock" title="Search for Development Item">
+    <apex:pageMessages/>
+    <apex:pageBlockButtons>
+        <apex:commandButton action="{!getDevItems}" value="Search" rerender="searchBlock"/>
+        <apex:commandButton action="{!makeReservation}" value="Reserve" rerender="searchBlock" rendered="{!devItems.size>0}"/>
+        <apex:commandButton action="{!releaseReservation}" value="Release" rerender="searchBlock" rendered="{!devItems.size>0}"/>
+    </apex:pageBlockButtons>
+    <apex:inputText value="{!itemName}"/><br/>
+    <table>
+        <tr>
+            <th style="width:10%" >Reserve/Relase?</th>
+            <th style="width:25%">Name</th>
+            <th style="width:20%">Type</th>
+            <th style="width:15%">Currently Reserved?</th>
+            <th style="width:30%">Reserved By</th>
+        </tr>
+        <apex:repeat value="{!devItemWrappers}" var="d">
+            <tr>
+                <td>
+                    <apex:inputCheckbox value="{!d.reserveCheckbox}"/>
+                </td>
+                <td>{!d.developmentItem.Name}</td>
+                <td>{!d.developmentItem.Type__c}</td>
+                <td>{!IF(d.developmentItem.Currently_Reserved__c, 'Yes', 'No')}</td>
+                <td>{!d.developmentItem.Current_Reservations__c}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+
+</apex:pageBlock>
+
+<apex:pageBlock id="reserveConfirmation" title="Confirm Reservation" rendered="false">
+
+</apex:pageBlock> 
+
+
+</apex:form>	
+</apex:page>
